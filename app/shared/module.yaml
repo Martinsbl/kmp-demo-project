@@ -7,20 +7,31 @@ dependencies:
   - $compose.runtime
   - $compose.foundation
   - $compose.material3
+  - $libs.compose.material.icons.core
   - $compose.ui
-  - $compose.components.resources
   - $compose.preview
   - $compose.hotReload.runtimeApi
   - $libs.androidx.lifecycle.viewmodel.compose
+  - $libs.androidx.lifecycle.viewmodel.navigation3
   - $libs.androidx.lifecycle.runtime.compose
+  - $libs.androidx.navigation3.ui
+  - $libs.compose.material3.adaptive.navigation3
+  - $ktor.client.core
+  - $ktor.client.contentNegotiation
+  - $ktor.serialization.kotlinx.json
+
+dependencies@jvm:
+  - $ktor.client.okhttp
 
 dependencies@android:
+  - $ktor.client.okhttp
   - $compose.uiTooling
 
+dependencies@ios:
+  - $ktor.client.darwin
+
 settings:
-  compose:
-    enabled: true
-    resources:
-      packageName: org.example.demo.resources
-      # Generate public accessors so other modules (and previews) can use Res.*
-      exposedAccessors: true
+  kotlin:
+    serialization: json
+  ktor: enabled
+  compose: enabled

@@ -1,4 +1,8 @@
-# Kotlin Multiplatform project
+# Bouvet Penguin Mail
+
+A tiny email reader for the penguins of Bouvet Island. The Ktor server serves a static list of mails, and the
+Compose Multiplatform app shows them with Navigation 3: list and mail side by side on wide screens, one page at a time
+on phones.
 
 This project is targeting Android, Desktop (JVM), iOS, Web, Server, built with
 the [Kotlin Toolchain](https://kotlin-toolchain.org/latest/).
@@ -11,7 +15,7 @@ the [Kotlin Toolchain](https://kotlin-toolchain.org/latest/).
   sibling `src@<platform>` folders (for example `src@android`) hold code compiled only for the platform named in the
   folder.
 - [/app/webApp](./app/webApp) contains the web application, compiled to WebAssembly with Kotlin/Wasm.
-- [/core](./core) holds the code shared across the project.
+- [/core](./core) holds the `Email` model shared by the server and the apps.
 - [/server](./server) contains the Ktor server application.
 
 The `kotlin` (macOS/Linux) and `kotlin.bat` (Windows) scripts in the project root are self-bootstrapping wrappers for
@@ -20,13 +24,13 @@ Build the whole project with `./kotlin build`.
 
 ### Running
 
-Run each module from the command line:
+Start the server first, then run any of the apps:
 
+- Server: `./kotlin run -m server`
 - Android app: `./kotlin run -m androidApp`
 - Desktop app: `./kotlin run -m desktopApp`
 - iOS app: `./kotlin run -m iosApp`
 - Web app: `./kotlin run -m webApp`
-- Server: `./kotlin run -m server`
 
 ### Testing
 

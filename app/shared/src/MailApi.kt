@@ -7,9 +7,10 @@ import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.json
 
 class MailApi {
-    private val client = HttpClient {
-        install(ContentNegotiation) { json() }
-    }
+    private val client =
+        HttpClient {
+            install(ContentNegotiation) { json() }
+        }
 
     suspend fun emails(): List<Email> = client.get("$serverUrl/emails").body()
 

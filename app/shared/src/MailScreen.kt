@@ -10,7 +10,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -23,9 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /** [onBack] is null when the inbox is shown next to the mail, so no back button is needed. */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MailScreen(state: UiState<Email>, onBack: (() -> Unit)?) {
+fun MailScreen(
+    state: UiState<Email>,
+    onBack: (() -> Unit)?,
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -40,17 +41,30 @@ fun MailScreen(state: UiState<Email>, onBack: (() -> Unit)?) {
             )
         },
     ) { padding ->
-        Box(Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.Center) {
+        Box(Modifier
+            .padding(padding)
+            .fillMaxSize(), contentAlignment = Alignment.Center) {
             when (state) {
-                UiState.Loading -> CircularProgressIndicator()
-                is UiState.Error -> Text(state.message, Modifier.padding(16.dp))
-                is UiState.Success -> Column(
-                    modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Text(state.data.subject, style = MaterialTheme.typography.headlineSmall)
-                    Text(state.data.date, style = MaterialTheme.typography.labelMedium)
-                    Text(state.data.body, style = MaterialTheme.typography.bodyLarge)
+                UiState.Loading -> {
+                    CircularProgressIndicator()
+                }
+
+                is UiState.Error -> {
+                    Text(state.message, Modifier.padding(16.dp))
+                }
+
+                is UiState.Success -> {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .verticalScroll(rememberScrollState())
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        Text(state.data.subject, style = MaterialTheme.typography.headlineSmall)
+                        Text(state.data.date, style = MaterialTheme.typography.labelMedium)
+                        Text(state.data.body, style = MaterialTheme.typography.bodyLarge)
+                    }
                 }
             }
         }

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
@@ -19,26 +18,38 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InboxScreen(state: UiState<List<Email>>, onMailClick: (Int) -> Unit) {
+fun InboxScreen(
+    state: UiState<List<Email>>,
+    onMailClick: (Int) -> Unit,
+) {
     Scaffold(topBar = { TopAppBar(title = { Text("Bouvet Penguin Mail") }) }) { padding ->
-        Box(Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.Center) {
+        Box(Modifier
+            .padding(padding)
+            .fillMaxSize(), contentAlignment = Alignment.Center) {
             when (state) {
-                UiState.Loading -> CircularProgressIndicator()
-                is UiState.Error -> Text(state.message, Modifier.padding(16.dp))
-                is UiState.Success -> LazyColumn(Modifier.fillMaxSize()) {
-                    items(state.data, key = { it.id }) { email ->
-                        ListItem(
-                            headlineContent = { Text(email.subject) },
-                            overlineContent = { Text(email.from) },
-                            supportingContent = {
-                                Text(email.body, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                            },
-                            trailingContent = { Text(email.date) },
-                            modifier = Modifier.clickable { onMailClick(email.id) },
-                        )
-                        HorizontalDivider()
+                UiState.Loading -> {
+                    CircularProgressIndicator()
+                }
+
+                is UiState.Error -> {
+                    Text(state.message, Modifier.padding(16.dp))
+                }
+
+                is UiState.Success -> {
+                    LazyColumn(Modifier.fillMaxSize()) {
+                        items(state.data, key = { it.id }) { email ->
+                            ListItem(
+                                headlineContent = { Text(email.subject) },
+                                overlineContent = { Text(email.from) },
+                                supportingContent = {
+                                    Text(email.body, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                },
+                                trailingContent = { Text(email.date) },
+                                modifier = Modifier.clickable { onMailClick(email.id) },
+                            )
+                            HorizontalDivider()
+                        }
                     }
                 }
             }

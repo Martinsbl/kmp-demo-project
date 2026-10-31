@@ -1,0 +1,9 @@
+product: jvm/amper-plugin
+
+dependencies:
+  - $libs.ktlint.rule.engine
+  - $libs.ktlint.ruleset.standard
+  - $libs.slf4j.nop
+
+plugins:
+  ktlint: enabled

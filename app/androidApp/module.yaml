@@ -11,3 +11,6 @@ settings:
   android:
     namespace: org.example.demo
     applicationId: org.example.demo
+
+plugins:
+  ktlint: enabled

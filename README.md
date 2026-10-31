@@ -17,6 +17,8 @@ the [Kotlin Toolchain](https://kotlin-toolchain.org/latest/).
 - [/app/webApp](./app/webApp) contains the web application, compiled to WebAssembly with Kotlin/Wasm.
 - [/core](./core) holds the `Email` model shared by the server and the apps.
 - [/server](./server) contains the Ktor server application.
+- [/plugins/ktlint](./plugins/ktlint) is a Kotlin Toolchain plugin that runs [ktlint](https://pinterest.github.io/ktlint/)
+  on every module.
 
 ### Code organization
 
@@ -52,6 +54,15 @@ Start the server first, then run any of the apps:
 ### Testing
 
 Run the project's tests with `./kotlin test`, or `./kotlin test -m <module>` for a single module.
+
+### Linting
+
+The code is linted with [ktlint](https://pinterest.github.io/ktlint/), configured in [.editorconfig](./.editorconfig).
+
+- Lint: `./kotlin check ktlint`
+- Fix what ktlint can fix on its own: `./kotlin do ktlintFormat`
+
+Both take `-m <module>` to limit them to a single module. `./kotlin check` runs the lint together with the tests.
 
 ---
 

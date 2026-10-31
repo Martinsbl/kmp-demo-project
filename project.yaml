@@ -5,4 +5,8 @@ modules:
   - app/shared
   - app/webApp
   - core
+  - plugins/ktlint
   - server
+
+plugins:
+  - ./plugins/ktlint

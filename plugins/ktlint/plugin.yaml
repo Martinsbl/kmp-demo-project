@@ -1,0 +1,18 @@
+tasks:
+  lint:
+    action: !org.example.demo.ktlint.lint
+      moduleDir: ${module.rootDir}
+      projectDir: ${project.rootDir}
+
+  format:
+    action: !org.example.demo.ktlint.format
+      moduleDir: ${module.rootDir}
+      projectDir: ${project.rootDir}
+
+checks:
+  - name: ktlint
+    performedBy: lint
+
+commands:
+  - name: ktlintFormat
+    performedBy: format

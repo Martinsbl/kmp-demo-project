@@ -5,3 +5,6 @@ product:
 settings:
   kotlin:
     serialization: json
+
+plugins:
+  ktlint: enabled

@@ -11,3 +11,6 @@ settings:
   compose: enabled
   jvm:
     mainClass: org.example.demo.MainKt
+
+plugins:
+  ktlint: enabled

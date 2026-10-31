@@ -35,3 +35,6 @@ settings:
     serialization: json
   ktor: enabled
   compose: enabled
+
+plugins:
+  ktlint: enabled

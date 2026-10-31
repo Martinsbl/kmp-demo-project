@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import org.example.demo.Email
 import org.example.demo.common.UiState
 import org.example.demo.theme.BouvetTheme
-import org.example.demo.ui.BouvetTopBar
 import org.example.demo.theme.ThemePreviews
+import org.example.demo.ui.BouvetTopBar
 
 /** [onBack] is null when the inbox is shown next to the mail, so no back button is needed. */
 @Composable

@@ -12,6 +12,9 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
+import org.example.demo.theme.BouvetTheme
+import org.example.demo.theme.LineThickness
+import org.example.demo.theme.ThemePreviews
 
 /** A top bar with the template's orange rule under it. Icons are white on navy, navy on cream, never orange. */
 @Composable
@@ -31,14 +34,17 @@ fun BouvetTopBar(
                 actionIconContentColor = iconColor,
             ),
         )
-        HorizontalDivider(thickness = _root_ide_package_.org.example.demo.theme.LineThickness, color = MaterialTheme.colorScheme.outline)
+        HorizontalDivider(
+            thickness = LineThickness,
+            color = MaterialTheme.colorScheme.outline,
+        )
     }
 }
 
-@org.example.demo.theme.ThemePreviews
+@ThemePreviews
 @Composable
 private fun InboxScreenPreview() {
-    _root_ide_package_.org.example.demo.theme.BouvetTheme {
+    BouvetTheme {
         BouvetTopBar(
             title = { Text("PENGUIN MAIL") },
             navigationIcon = { Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Menu") },

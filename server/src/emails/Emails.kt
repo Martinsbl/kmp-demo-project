@@ -1,4 +1,4 @@
-package org.example.demo.server
+package org.example.demo.server.emails
 
 import org.example.demo.Email
 

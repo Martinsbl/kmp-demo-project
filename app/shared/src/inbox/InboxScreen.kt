@@ -1,4 +1,4 @@
-package org.example.demo
+package org.example.demo.inbox
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -17,6 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import org.example.demo.Email
+import org.example.demo.common.UiState
+import org.example.demo.theme.BouvetTopBar
+import org.example.demo.theme.LineThickness
 
 @Composable
 fun InboxScreen(

@@ -1,4 +1,4 @@
-package org.example.demo
+package org.example.demo.mail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,6 +19,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import org.example.demo.Email
+import org.example.demo.common.UiState
+import org.example.demo.theme.BouvetTopBar
 
 /** [onBack] is null when the inbox is shown next to the mail, so no back button is needed. */
 @Composable

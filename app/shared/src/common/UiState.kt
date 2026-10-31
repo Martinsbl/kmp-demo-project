@@ -1,4 +1,4 @@
-package org.example.demo
+package org.example.demo.common
 
 sealed interface UiState<out T> {
     data object Loading : UiState<Nothing>

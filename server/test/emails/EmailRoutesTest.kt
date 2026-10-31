@@ -1,4 +1,4 @@
-package org.example.demo.server
+package org.example.demo.server.emails
 
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
@@ -7,8 +7,9 @@ import io.ktor.server.testing.testApplication
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
+import org.example.demo.server.module
 
-class ApplicationTest {
+class EmailRoutesTest {
 
     @Test
     fun `lists all emails`() = testApplication {

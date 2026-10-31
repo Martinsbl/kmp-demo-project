@@ -1,10 +1,11 @@
-package org.example.demo
+package org.example.demo.data
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.json
+import org.example.demo.Email
 
 class MailApi {
     private val client =

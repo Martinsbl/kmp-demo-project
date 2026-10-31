@@ -1,4 +1,4 @@
-package org.example.demo
+package org.example.demo.inbox
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,6 +7,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
+import org.example.demo.Email
+import org.example.demo.common.UiState
+import org.example.demo.data.MailApi
 
 class InboxViewModel(
     api: MailApi,

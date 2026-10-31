@@ -18,6 +18,23 @@ the [Kotlin Toolchain](https://kotlin-toolchain.org/latest/).
 - [/core](./core) holds the `Email` model shared by the server and the apps.
 - [/server](./server) contains the Ktor server application.
 
+### Code organization
+
+The code is sliced vertically: each feature has its own package holding everything it needs, from the navigation key
+to the screen and its view model. Folders under `src` follow the packages, leaving out the common `org.example.demo`
+root.
+
+- `app/shared/src`
+  - `inbox` — the list of mails.
+  - `mail` — a single mail, and the placeholder shown when none is selected.
+  - `data` — `MailApi` and the platform-specific server URL, used by both features.
+  - `common` — `UiState`, shared by the features' view models.
+  - `theme` — the Bouvet colors, typography, shapes and top bar.
+  - `App.kt` and `NavConfig.kt` wire the features together with Navigation 3.
+- `server/src`
+  - `emails` — the `/emails` routes and the mails they serve.
+  - `Application.kt` starts the server and installs the plugins and routes.
+
 The `kotlin` (macOS/Linux) and `kotlin.bat` (Windows) scripts in the project root are self-bootstrapping wrappers for
 the Kotlin Toolchain: they download the pinned toolchain version on first use, so no separate installation is required.
 Build the whole project with `./kotlin build`.

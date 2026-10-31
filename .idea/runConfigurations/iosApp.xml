@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="iosApp" type="Amper.Run">
-    <option name="command" value="run" />
-    <EXTENSION ID="amper.run.common">
-      <option name="module" value="iosApp" />
-    </EXTENSION>
-    <method v="2" />
-  </configuration>
-</component>

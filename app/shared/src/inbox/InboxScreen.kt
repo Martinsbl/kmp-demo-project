@@ -19,8 +19,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import org.example.demo.Email
 import org.example.demo.common.UiState
+import org.example.demo.theme.BouvetTheme
 import org.example.demo.theme.BouvetTopBar
 import org.example.demo.theme.LineThickness
+import org.example.demo.theme.ThemePreviews
 
 @Composable
 fun InboxScreen(
@@ -61,5 +63,19 @@ fun InboxScreen(
                 }
             }
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun InboxScreenPreview() {
+    val emails =
+        listOf(
+            Email(1, "Pingu", "Fishing trip on Saturday?", "10:42", "The ice is thick enough now, bring your rod."),
+            Email(2, "Robby", "Re: Igloo renovation", "Yesterday", "I found a few more blocks of ice behind the shed."),
+            Email(3, "Pinga", "Snowball fight", "Mon", "Meet by the big rock after school. Don't tell Pingu!"),
+        )
+    BouvetTheme {
+        InboxScreen(state = UiState.Success(emails), onMailClick = {})
     }
 }

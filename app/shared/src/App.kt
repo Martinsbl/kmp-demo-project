@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
@@ -32,7 +31,6 @@ import org.jetbrains.compose.reload.DevelopmentEntryPoint
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
-@Preview
 @DevelopmentEntryPoint
 fun App() {
     val api = remember { MailApi() }

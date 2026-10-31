@@ -21,7 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.example.demo.Email
 import org.example.demo.common.UiState
+import org.example.demo.theme.BouvetTheme
 import org.example.demo.theme.BouvetTopBar
+import org.example.demo.theme.ThemePreviews
 
 /** [onBack] is null when the inbox is shown next to the mail, so no back button is needed. */
 @Composable
@@ -73,5 +75,21 @@ fun MailScreen(
                 }
             }
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun MailScreenPreview() {
+    val email =
+        Email(
+            id = 1,
+            from = "Pingu",
+            subject = "Fishing trip on Saturday?",
+            date = "10:42",
+            body = "The ice is thick enough now, bring your rod. We leave from the igloo at sunrise.",
+        )
+    BouvetTheme {
+        MailScreen(state = UiState.Success(email), onBack = {})
     }
 }

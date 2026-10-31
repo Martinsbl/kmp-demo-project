@@ -1,8 +1,12 @@
-package org.example.demo.theme
+package org.example.demo.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -27,6 +31,17 @@ fun BouvetTopBar(
                 actionIconContentColor = iconColor,
             ),
         )
-        HorizontalDivider(thickness = LineThickness, color = MaterialTheme.colorScheme.outline)
+        HorizontalDivider(thickness = _root_ide_package_.org.example.demo.theme.LineThickness, color = MaterialTheme.colorScheme.outline)
+    }
+}
+
+@org.example.demo.theme.ThemePreviews
+@Composable
+private fun InboxScreenPreview() {
+    _root_ide_package_.org.example.demo.theme.BouvetTheme {
+        BouvetTopBar(
+            title = { Text("PENGUIN MAIL") },
+            navigationIcon = { Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Menu") },
+        )
     }
 }

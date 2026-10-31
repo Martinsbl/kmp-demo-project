@@ -19,10 +19,10 @@ fun BouvetTopBar(
             title = title,
             navigationIcon = navigationIcon,
             colors =
-                TopAppBarDefaults.topAppBarColors(
-                    navigationIconContentColor = Color.White,
-                    actionIconContentColor = Color.White,
-                ),
+            TopAppBarDefaults.topAppBarColors(
+                navigationIconContentColor = Color.White,
+                actionIconContentColor = Color.White,
+            ),
         )
         HorizontalDivider(thickness = LineThickness, color = MaterialTheme.colorScheme.outline)
     }

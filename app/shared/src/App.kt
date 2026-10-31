@@ -50,35 +50,35 @@ fun App() {
             onBack = { backStack.removeLastOrNull() },
             sceneStrategies = listOf(rememberListDetailSceneStrategy(directive = directive)),
             entryDecorators =
-                listOf(
-                    rememberSaveableStateHolderNavEntryDecorator(),
-                    rememberViewModelStoreNavEntryDecorator(),
-                ),
+            listOf(
+                rememberSaveableStateHolderNavEntryDecorator(),
+                rememberViewModelStoreNavEntryDecorator(),
+            ),
             entryProvider =
-                entryProvider {
-                    entry<Inbox>(
-                        metadata = ListDetailSceneStrategy.listPane(detailPlaceholder = { NoMailSelected() }),
-                    ) {
-                        val viewModel = viewModel { InboxViewModel(api) }
-                        val state by viewModel.state.collectAsStateWithLifecycle()
-                        InboxScreen(
-                            state = state,
-                            onMailClick = { id ->
-                                // Replace the open mail instead of stacking mails on top of each other.
-                                if (backStack.last() is Mail) backStack.removeLastOrNull()
-                                backStack.add(Mail(id))
-                            },
-                        )
-                    }
-                    entry<Mail>(metadata = ListDetailSceneStrategy.detailPane()) { mail ->
-                        val viewModel = viewModel { MailViewModel(api, mail.id) }
-                        val state by viewModel.state.collectAsStateWithLifecycle()
-                        MailScreen(
-                            state = state,
-                            onBack = if (isSinglePane) ({ backStack.removeLastOrNull() }) else null,
-                        )
-                    }
-                },
+            entryProvider {
+                entry<Inbox>(
+                    metadata = ListDetailSceneStrategy.listPane(detailPlaceholder = { NoMailSelected() }),
+                ) {
+                    val viewModel = viewModel { InboxViewModel(api) }
+                    val state by viewModel.state.collectAsStateWithLifecycle()
+                    InboxScreen(
+                        state = state,
+                        onMailClick = { id ->
+                            // Replace the open mail instead of stacking mails on top of each other.
+                            if (backStack.last() is Mail) backStack.removeLastOrNull()
+                            backStack.add(Mail(id))
+                        },
+                    )
+                }
+                entry<Mail>(metadata = ListDetailSceneStrategy.detailPane()) { mail ->
+                    val viewModel = viewModel { MailViewModel(api, mail.id) }
+                    val state by viewModel.state.collectAsStateWithLifecycle()
+                    MailScreen(
+                        state = state,
+                        onBack = if (isSinglePane) ({ backStack.removeLastOrNull() }) else null,
+                    )
+                }
+            },
         )
     }
 }

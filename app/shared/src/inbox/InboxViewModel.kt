@@ -11,9 +11,7 @@ import org.example.demo.Email
 import org.example.demo.common.UiState
 import org.example.demo.data.MailApi
 
-class InboxViewModel(
-    api: MailApi,
-) : ViewModel() {
+class InboxViewModel(api: MailApi) : ViewModel() {
     val state: StateFlow<UiState<List<Email>>> =
         flow<UiState<List<Email>>> { emit(UiState.Success(api.emails())) }
             .catch { emit(UiState.Error("Could not reach the colony server: ${it.message}")) }

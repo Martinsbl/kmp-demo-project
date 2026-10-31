@@ -28,9 +28,12 @@ fun InboxScreen(
     onMailClick: (Int) -> Unit,
 ) {
     Scaffold(topBar = { BouvetTopBar(title = { Text("PENGUIN MAIL", fontWeight = FontWeight.Bold) }) }) { padding ->
-        Box(Modifier
-            .padding(padding)
-            .fillMaxSize(), contentAlignment = Alignment.Center) {
+        Box(
+            Modifier
+                .padding(padding)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center,
+        ) {
             when (state) {
                 UiState.Loading -> {
                     CircularProgressIndicator()

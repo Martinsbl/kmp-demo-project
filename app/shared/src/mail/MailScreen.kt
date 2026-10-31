@@ -43,9 +43,12 @@ fun MailScreen(
             )
         },
     ) { padding ->
-        Box(Modifier
-            .padding(padding)
-            .fillMaxSize(), contentAlignment = Alignment.Center) {
+        Box(
+            Modifier
+                .padding(padding)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center,
+        ) {
             when (state) {
                 UiState.Loading -> {
                     CircularProgressIndicator()

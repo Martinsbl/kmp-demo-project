@@ -11,10 +11,10 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
@@ -23,7 +23,7 @@ fun InboxScreen(
     state: UiState<List<Email>>,
     onMailClick: (Int) -> Unit,
 ) {
-    Scaffold(topBar = { TopAppBar(title = { Text("Bouvet Penguin Mail") }) }) { padding ->
+    Scaffold(topBar = { BouvetTopBar(title = { Text("PENGUIN MAIL", fontWeight = FontWeight.Bold) }) }) { padding ->
         Box(Modifier
             .padding(padding)
             .fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -33,7 +33,7 @@ fun InboxScreen(
                 }
 
                 is UiState.Error -> {
-                    Text(state.message, Modifier.padding(16.dp))
+                    Text(state.message, Modifier.align(Alignment.CenterStart).padding(16.dp))
                 }
 
                 is UiState.Success -> {
@@ -48,7 +48,7 @@ fun InboxScreen(
                                 trailingContent = { Text(email.date) },
                                 modifier = Modifier.clickable { onMailClick(email.id) },
                             )
-                            HorizontalDivider()
+                            HorizontalDivider(thickness = LineThickness)
                         }
                     }
                 }

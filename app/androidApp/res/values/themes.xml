@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bouvet_navy">#11133C</color>
+
+    <!-- Navy behind the app before Compose draws its first frame, so there is no white flash. -->
+    <style name="Theme.PenguinMail" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bouvet_navy</item>
+    </style>
+</resources>

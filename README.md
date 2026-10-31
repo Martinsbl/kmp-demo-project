@@ -1,4 +1,4 @@
-# Bouvet Penguin Mail
+# Penguin Mail
 
 A tiny email reader for the penguins of Bouvet Island. The Ktor server serves a static list of mails, and the
 Compose Multiplatform app shows them with Navigation 3: list and mail side by side on wide screens, one page at a time

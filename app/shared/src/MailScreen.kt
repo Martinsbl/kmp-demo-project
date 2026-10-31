@@ -15,7 +15,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,7 +28,7 @@ fun MailScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
+            BouvetTopBar(
                 title = { Text((state as? UiState.Success)?.data?.from.orEmpty()) },
                 navigationIcon = {
                     if (onBack != null) {
@@ -50,7 +49,7 @@ fun MailScreen(
                 }
 
                 is UiState.Error -> {
-                    Text(state.message, Modifier.padding(16.dp))
+                    Text(state.message, Modifier.align(Alignment.CenterStart).padding(16.dp))
                 }
 
                 is UiState.Success -> {

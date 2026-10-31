@@ -5,7 +5,7 @@ import androidx.compose.ui.window.application
 
 fun main() =
     application {
-        Window(onCloseRequest = ::exitApplication, title = "Bouvet Penguin Mail") {
+        Window(onCloseRequest = ::exitApplication, title = "Penguin Mail") {
             App()
         }
     }

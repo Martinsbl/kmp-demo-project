@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="server + webApp" type="CompoundRunConfigurationType">
+    <toRun name="server" type="Amper.Run" />
+    <toRun name="webApp" type="Amper.Run" />
+    <method v="2" />
+  </configuration>
+</component>

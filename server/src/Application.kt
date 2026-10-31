@@ -5,8 +5,11 @@ import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import io.ktor.server.plugins.calllogging.CallLogging
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.cors.routing.CORS
+import io.ktor.server.request.httpMethod
+import io.ktor.server.request.path
 import io.ktor.server.routing.routing
 import org.example.demo.SERVER_PORT
 import org.example.demo.server.emails.emailRoutes
@@ -19,6 +22,9 @@ fun main() {
 fun Application.module() {
     install(ContentNegotiation) { json() }
     install(CORS) { anyHost() }
+    install(CallLogging) {
+        format { call -> "${call.response.status()?.value} ${call.request.httpMethod.value} ${call.request.path()}" }
+    }
 
     routing {
         emailRoutes()

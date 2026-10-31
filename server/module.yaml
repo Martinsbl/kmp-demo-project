@@ -6,6 +6,7 @@ dependencies:
   - $ktor.server.netty
   - $ktor.server.contentNegotiation
   - $ktor.server.cors
+  - $ktor.server.callLogging
   - $ktor.serialization.kotlinx.json
   - $libs.logback.classic
 
